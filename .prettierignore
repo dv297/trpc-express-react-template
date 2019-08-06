@@ -1,0 +1,13 @@
+lib/
+node_modules/
+coverage/
+build/
+out/
+dist/
+**/aggregated-translations/*.*
+README.md
+build_output/
+generated/
+target/
+translations/
+.github/
