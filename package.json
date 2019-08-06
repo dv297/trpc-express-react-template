@@ -1,0 +1,19 @@
+{
+  "name": "express-react-template-project",
+  "version": "1.0.0",
+  "description": "Template for scaffolding an Express and React project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dv297/express-react-template-project.git"
+  },
+  "author": "Daniel Vu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dv297/express-react-template-project/issues"
+  },
+  "homepage": "https://github.com/dv297/express-react-template-project#readme"
+}
