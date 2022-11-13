@@ -10,6 +10,12 @@ const PORT = 4000 || process.env.PORT;
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+app.get('/test', (req, res) => {
+  res.json({
+    message: 'This is coming from the Express server',
+  });
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
