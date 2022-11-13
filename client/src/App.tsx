@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { httpBatchLink } from '@trpc/client';
+import { trpc } from './utils/trpc';
+import Home from './pages/Home';
 
 function App() {
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('/test');
-      const data = await response.json();
-      console.log(data);
-    }
-
-    fetchData();
-  }, []);
+  const [queryClient] = useState(() => new QueryClient());
+  const [trpcClient] = useState(() =>
+    trpc.createClient({
+      links: [
+        httpBatchLink({
+          url: '/trpc',
+        }),
+      ],
+    }),
+  );
 
   return (
-    <div className="flex flex-col justify-center items-center w-full min-h-screen gap-y-8">
-      <div className="font-bold text-5xl">Welcome</div>
-      <div>Console should show JSON from Express server</div>
-    </div>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <Home />
+      </QueryClientProvider>
+    </trpc.Provider>
   );
 }
 
